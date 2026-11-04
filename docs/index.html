@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- スマホ画面に合わせた最適な表示サイズ（レスポンシブ表示）に自動調整 
+   initial-scale=1.0 ページが開いた瞬間のズーム倍率を 1.0倍（等倍） に固定-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOFF 研修用フォーム</title>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="./css/style.css?v=1.0">
+
+  <!-- WOFF SDK (deferを追加して確実に読み込ませる) -->
+  <script charset="utf-8" src="https://static.worksmobile.net/static/wm/woff/edge/3.7.4/sdk.js" defer> </script>
+</head>
+<body>
+  <div class="card">
+    <h2>研修用 WOFF フォーム</h2>
+    <div id="status" class="status-msg">WOFF SDK 初期化中...</div>
+
+    <!-- ログイン後に表示するコンテンツエリア -->
+    <div id="profile" class="profile-container">
+      <p>ようこそ、<span id="display-name" class="user-name"></span> さん！</p>
+      <p class="sub-info">ID: <span id="user-id"></span></p>
+
+      <hr>
+
+      <!-- 入力フォーム -->
+      <form id="woff-form">
+        <div class="form-group">
+          <label for="title">件名</label>
+          <input type="text" id="title" name="title" required placeholder="例：備品購入申請">
+        </div>
+
+        <div class="form-group">
+          <label for="detail">詳細内容</label>
+          <textarea id="detail" name="detail" rows="4" required placeholder="具体的な内容を入力してください"></textarea>
+        </div>
+
+        <button type="submit" id="submit-btn">Botへ送信する</button>
+      </form>
+      
+      <div id="result-message" class="result-msg"></div>
+    </div>
+  </div>
+
+  <script src="./js/app_simple.js?v=1.1"></script>
+</body>
+</html>

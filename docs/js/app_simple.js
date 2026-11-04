@@ -1,5 +1,7 @@
 // 発行された WOFF ID
 const MY_WOFF_ID = "YJb8yPlDwNF0T8JCf-olFw";
+// グローバル変数を宣言（ここにユーザー情報を保持します）
+let currentUserProfile = null;
 
 // 画面上にエラーメッセージを表示する補助関数
 function showDebugError(message) {
@@ -54,6 +56,8 @@ async function initWoffApp() {
     // ==========================================
     statusEl.innerText = "プロフィールを取得中...";
     const profile = await woff.getProfile();
+    // グローバル変数にも代入
+    currentUserProfile = profile;
 
     if (profile) {
       statusEl.style.display = "none";

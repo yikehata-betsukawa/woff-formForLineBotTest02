@@ -29,7 +29,9 @@ async function initWoffApp() {
     // 1. WOFF アプリの初期化
     // ==========================================
     statusEl.innerText = "WOFF SDK 初期化中...";
-    await woff.init({ woffId: MY_WOFF_ID });
+    await woff.init({ woffId: MY_WOFF_ID,
+      redirectUri: window.location.origin + window.location.pathname // 現在のURLを明示的に指定
+    });
 
     // ==========================================
     // 2. WOFF アプリの実行環境の確認

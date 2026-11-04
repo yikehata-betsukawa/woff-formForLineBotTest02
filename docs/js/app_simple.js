@@ -31,6 +31,7 @@ async function initWoffApp() {
     // ==========================================
     statusEl.innerText = "WOFF SDK 初期化中...";
     await woff.init({ woffId: MY_WOFF_ID,
+      scope: "openid user.read", //LINE WORKS 側で設定されたスコープと照合するためアプリの権限を明示的に指定
       redirectUri: window.location.origin + window.location.pathname  // ログイン後の戻り先URL
     });
 

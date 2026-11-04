@@ -30,14 +30,20 @@ async function initWoffApp() {
     // ==========================================
     statusEl.innerText = "WOFF SDK 初期化中...";
     await woff.init({ woffId: MY_WOFF_ID,
-      redirectUri: window.location.origin + window.location.pathname // 現在のURLを明示的に指定
+      redirectUri: window.location.origin + window.location.pathname  // ログイン後の戻り先URL
     });
 
     // ==========================================
     // 2. WOFF アプリの実行環境の確認
     // ==========================================
     if (!woff.isLoggedIn()) {
-      showDebugError("非ログイン状態です。\nLINE WORKS アプリ内のトーク画面から開いてください。");
+
+      statusEl.innerText = "LINE WORKS ログイン画面へ移動中...";
+      // 外部ブラウザの場合は LINE WORKS のログイン画面へリダイレクト
+      woff.login({
+        redirectUri: window.location.origin + window.location.pathname
+      });
+      //showDebugError("非ログイン状態です。\nLINE WORKS アプリ内のトーク画面から開いてください。");
       return;
     }
 

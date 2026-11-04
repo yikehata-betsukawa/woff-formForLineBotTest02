@@ -35,6 +35,7 @@ async function initWoffApp() {
     await woff.init({ woffId: MY_WOFF_ID,
       scope: "openid user.read", //LINE WORKS 側で設定されたスコープと照合するためアプリの権限を明示的に指定
       redirectUri: window.location.origin + window.location.pathname  // ログイン後の戻り先URL
+      //JavaScript が現在開いているページの 「パラメータ（?code=... や ?v=1.1 など）を除いた純粋なURL」 を自動生成するコード
     });
 
     // ==========================================
@@ -134,6 +135,7 @@ async function handleFormSubmit(event) {
     }
 
     const data = await response.json();
+    console.log(data)
     if (resultEl) {
       resultEl.classList.add("success");
       resultEl.innerText = "正常に送信されました！画面を閉じます...";

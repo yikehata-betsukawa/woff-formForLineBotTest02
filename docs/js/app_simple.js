@@ -1,5 +1,5 @@
 // 発行された WOFF ID
-const MY_WOFF_ID = "9KQKM20EFOSXTcctb8mm_w";
+const MY_WOFF_ID = "YJb8yPlDwNF0T8JCf-olFw";
 
 // 画面上にエラーメッセージを表示する補助関数
 function showDebugError(message) {
